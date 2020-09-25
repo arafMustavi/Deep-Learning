@@ -1,5 +1,8 @@
 import random
 from operator import add
+# *****************************************************************************
+# **************Data Reading from File + Essential Functions ******************
+# *****************************************************************************
 
 def dataset_profile(givenset):
     dict = {}
@@ -19,8 +22,6 @@ totalFeature = int(totalFeature)
 nClass = int(nClass)
 nSample = int(nSample)
 
-dataset_dict = {}
-count = 0
 dataset = []
 for row in filedata[1:]:
     frame = row.split()
@@ -94,10 +95,10 @@ for i in range(total_iteration):
     if accuracy == 100:
         break
 
-print("===============================")
-print("*******Batch Train Ended********")
-print("===============================")
-
+print("============================================")
+print("*************Batch Train Ended**************")
+print("*******Test on Batch Trained Started********")
+print("============================================")
 
 with open('testLinearlySeparable.txt', 'r') as data:
     filedata = data.readlines()
@@ -128,11 +129,13 @@ print("Test Complete. Total Incorrect:" + str(len(misclassified_data)) + " Recog
 
 
 #*******************************************************************************************************
-
-
+#*******************************************************************************************************
 # *******************************************************
 # ********Reward and Punishment PERCEPTRON *************
 # ******************************************************
+#*******************************************************************************************************
+#*******************************************************************************************************
+
 def update_instant_weight(weight, data):
     if (data[-1] == 0):
         constant = -1
@@ -178,6 +181,7 @@ for i in range(total_iteration):
 
 print("===================================================")
 print("*******Reward And Punishment Training Ended********")
+print("**************Test on R&P Started*************")
 print("===================================================")
 
 # misclassified , acquired_accuracy = calc_aacuracy(dataset,weight)
@@ -211,16 +215,15 @@ recognition = (1 - len(misclassified_data) / len(testdataset)) * 100
 print("Reward and Punishment Test Complete. Total Incorrect:" + str(len(misclassified_data)) + " In Reward and Punishment Recognition Rate : " + str(recognition) )
 
 
-
-
-
-
 #*******************************************************************************************************
-
-
 # *******************************************************
 # ********Pocket Algorithm PERCEPTRON *************
 # ******************************************************
+#*******************************************************************************************************
+##################################
+#######Data Onboard###############
+##################################
+
 with open('trainLinearlyNonSeparable.txt', 'r') as data:
     filedata = data.readlines()
 header = filedata[0].split()
@@ -238,7 +241,6 @@ for row in filedata[1:]:
     dataset.append(frame)
 
 
-######################
 
 
 
@@ -271,9 +273,9 @@ for i in range(max_iteration):
         accuracyPocket = accuracy
         weightPocket = weight
     print("Total Incorrect:" + str(len(misclassified_data)) + " Current Accuracy : " + str(accuracy) + " Updated Weight :")
-    print(weight)
+    # print(weight)
     print("Accuracy Pocket : " + str(accuracyPocket)+ " Weight Pocket :" )
-    print(weightPocket)
+    # print(weightPocket)
     if accuracy == 100:
         break
 
@@ -299,8 +301,8 @@ dataset_profile(testdataset)
 misclassified_data = []
 for data in testdataset:
     if inWrongClass(data, weight):
-        print("Misclassified The Test Data")
-        print(data)
+        # print("Misclassified The Test Data")
+        # print(data)
         misclassified_data.append(data)
     else:
         pass

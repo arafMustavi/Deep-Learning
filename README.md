@@ -1,8 +1,11 @@
 # Deep-Learning
-My resources related to Deep Learning
+Resources and Codes
 
-Preceptron is Added
+In the perceptron,there are implementation of
 
-Batch Update
 
-Instant Update for faster Converge
+Batch Perceptron Learning Update
+
+Instant Update of weights for faster Converge
+
+Pocket Algorithm
