@@ -9,3 +9,7 @@ Batch Perceptron Learning Update
 Instant Update of weights for faster Converge
 
 Pocket Algorithm
+
+
+Back Propagation:
+ https://machinelearningmastery.com/implement-backpropagation-algorithm-scratch-python/
